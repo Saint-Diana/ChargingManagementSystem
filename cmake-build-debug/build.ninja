@@ -85,6 +85,18 @@ build CMakeFiles/ChargingManagementSystem.dir/Record.cpp.obj: CXX_COMPILER__Char
   OBJECT_DIR = CMakeFiles\ChargingManagementSystem.dir
   OBJECT_FILE_DIR = CMakeFiles\ChargingManagementSystem.dir
 
+build CMakeFiles/ChargingManagementSystem.dir/LinkedList.cpp.obj: CXX_COMPILER__ChargingManagementSystem_Debug C$:/Users/liu/OneDrive/×ÀÃæ/C++/ChargingManagementSystem/LinkedList.cpp || cmake_object_order_depends_target_ChargingManagementSystem
+  DEP_FILE = CMakeFiles\ChargingManagementSystem.dir\LinkedList.cpp.obj.d
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles\ChargingManagementSystem.dir
+  OBJECT_FILE_DIR = CMakeFiles\ChargingManagementSystem.dir
+
+build CMakeFiles/ChargingManagementSystem.dir/LinkedListNode.cpp.obj: CXX_COMPILER__ChargingManagementSystem_Debug C$:/Users/liu/OneDrive/×ÀÃæ/C++/ChargingManagementSystem/LinkedListNode.cpp || cmake_object_order_depends_target_ChargingManagementSystem
+  DEP_FILE = CMakeFiles\ChargingManagementSystem.dir\LinkedListNode.cpp.obj.d
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles\ChargingManagementSystem.dir
+  OBJECT_FILE_DIR = CMakeFiles\ChargingManagementSystem.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target ChargingManagementSystem
@@ -93,7 +105,7 @@ build CMakeFiles/ChargingManagementSystem.dir/Record.cpp.obj: CXX_COMPILER__Char
 #############################################
 # Link the executable ChargingManagementSystem.exe
 
-build ChargingManagementSystem.exe: CXX_EXECUTABLE_LINKER__ChargingManagementSystem_Debug CMakeFiles/ChargingManagementSystem.dir/main.cpp.obj CMakeFiles/ChargingManagementSystem.dir/Card.cpp.obj CMakeFiles/ChargingManagementSystem.dir/CardManagement.cpp.obj CMakeFiles/ChargingManagementSystem.dir/Machine.cpp.obj CMakeFiles/ChargingManagementSystem.dir/Admin.cpp.obj CMakeFiles/ChargingManagementSystem.dir/Record.cpp.obj
+build ChargingManagementSystem.exe: CXX_EXECUTABLE_LINKER__ChargingManagementSystem_Debug CMakeFiles/ChargingManagementSystem.dir/main.cpp.obj CMakeFiles/ChargingManagementSystem.dir/Card.cpp.obj CMakeFiles/ChargingManagementSystem.dir/CardManagement.cpp.obj CMakeFiles/ChargingManagementSystem.dir/Machine.cpp.obj CMakeFiles/ChargingManagementSystem.dir/Admin.cpp.obj CMakeFiles/ChargingManagementSystem.dir/Record.cpp.obj CMakeFiles/ChargingManagementSystem.dir/LinkedList.cpp.obj CMakeFiles/ChargingManagementSystem.dir/LinkedListNode.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\ChargingManagementSystem.dir

@@ -3,4 +3,4 @@ project(ChargingManagementSystem)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(ChargingManagementSystem main.cpp Card.cpp Card.h CardManagement.cpp CardManagement.h Constant.h Machine.cpp Machine.h Admin.cpp Admin.h Record.cpp Record.h)
+add_executable(ChargingManagementSystem main.cpp Card.cpp Card.h CardManagement.cpp CardManagement.h Constant.h Machine.cpp Machine.h Admin.cpp Admin.h Record.cpp Record.h LinkedList.cpp LinkedList.h LinkedListNode.cpp LinkedListNode.h)

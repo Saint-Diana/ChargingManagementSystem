@@ -56,9 +56,6 @@ time_t string2time_t(const string string_time)
 
 
 CardManagement::CardManagement() {
-    cards = new Card[MAX_CARD_NUM];
-    machines = new Machine[MAX_MACHINE_NUM];
-    records = new Record[MAX_RECORD_NUM];
     admin = Admin();
     readCards();
     readAdmin();
@@ -75,9 +72,6 @@ CardManagement::~CardManagement() {
     saveMachines();
     saveRecords();
     savePrice();
-    delete[] cards;
-    delete[] machines;
-    delete[] records;
 }
 
 
@@ -96,7 +90,9 @@ void CardManagement::addCard(string cardId, string password, double money) {
         printf("该卡已存在，请勿重复添加！\n");
         return;
     }
-    cards[cardNum++] = Card(cardId, password, money);
+    Card card(cardId, password, money);
+    cards.add(card);
+    cardNum++;
     printf("添加卡成功\n");
 }
 
@@ -287,7 +283,8 @@ void CardManagement::logout(string cardId, const string &password) {
             //输出下机时间
             auto logoutTime = time_t2string(current);
             cout << logoutTime << endl;
-            records[recordNum] = Record(cards[i].cardId, cards[i].time, current, price_per_second * seconds);
+            Record record(cards[i].cardId, cards[i].time, current, price_per_second * seconds);
+            records.add(record);
             recordNum++;
             return;
         }
@@ -562,38 +559,40 @@ void CardManagement::readCards() {
     cardNum = stoi(data);
     //然后读入卡的信息
     int cnt = 0;
+    Card card;
     while (file >> data){
         switch (cnt % 8) {
             case 0:{
-                cards[cnt / 8].cardId = data;
+                card.cardId = data;
                 break;
             }
             case 1:{
-                cards[cnt / 8].password = data;
+                card.password = data;
                 break;
             }
             case 2:{
-                cards[cnt / 8].money = stod(data);
+                card.money = stod(data);
                 break;
             }
             case 3:{
-                cards[cnt / 8].historyMoney = stod(data);
+                card.historyMoney = stod(data);
                 break;
             }
             case 4:{
-                cards[cnt / 8].state = stoi(data);
+                card.state = stoi(data);
                 break;
             }
             case 5:{
-                cards[cnt / 8].frequency = stoi(data);
+                card.frequency = stoi(data);
                 break;
             }
             case 6:{
-                cards[cnt / 8].time = stoi(data);
+                card.time = stoi(data);
                 break;
             }
             case 7:{
-                cards[cnt / 8].startTime = stoi(data);
+                card.startTime = stoi(data);
+                cards.add(card);
                 break;
             }
         }
@@ -650,22 +649,24 @@ void CardManagement::readMachines() {
     string data;
     //读入机器的信息
     int cnt = 0;
+    Machine machine;
     while (file >> data){
         switch (cnt % 4) {
             case 0:{
-                machines[cnt / 4].id = stoi(data);
+                machine.id = stoi(data);
                 break;
             }
             case 1:{
-                machines[cnt / 4].isFree = stoi(data);
+                machine.isFree = stoi(data);
                 break;
             }
             case 2:{
-                machines[cnt / 4].cardId = data;
+                machine.cardId = data;
                 break;
             }
             case 3:{
-                machines[cnt / 4].time = stoi(data);
+                machine.time = stoi(data);
+                machines.add(machine);
                 break;
             }
         }
@@ -711,22 +712,24 @@ void CardManagement::readRecords() {
     recordNum = stoi(data);
     //然后读入卡的信息
     int cnt = 0;
+    Record record;
     while (file >> data){
         switch (cnt % 4) {
             case 0:{
-                records[cnt / 4].cardId = data;
+                record.cardId = data;
                 break;
             }
             case 1:{
-                records[cnt / 4].beginTime = stoi(data);
+                record.beginTime = stoi(data);
                 break;
             }
             case 2:{
-                records[cnt / 4].endTime = stoi(data);
+                record.endTime = stoi(data);
                 break;
             }
             case 3:{
-                records[cnt / 4].money = stod(data);
+                record.money = stod(data);
+                records.add(record);
                 break;
             }
         }

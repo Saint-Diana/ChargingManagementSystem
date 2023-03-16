@@ -8,15 +8,20 @@
 #include "Machine.h"
 #include "Admin.h"
 #include "Record.h"
+#include "LinkedList.h"
+#include <bits/stdc++.h>
 using namespace std;
 
 class CardManagement {
 public:
     int cardNum;
-    Card* cards;
-    Machine* machines;
+//    Card* cards;
+//    Machine* machines;
+//    Record* records;
+    LinkedList<Card> cards;
+    LinkedList<Machine> machines;
+    LinkedList<Record> records;
     Admin admin;
-    Record* records;
     int recordNum;
     double price_per_second;
 public:
