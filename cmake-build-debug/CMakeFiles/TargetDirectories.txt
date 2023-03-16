@@ -1,0 +1,3 @@
+C:/Users/liu/OneDrive/桌面/C++/ChargingManagementSystem/cmake-build-debug/CMakeFiles/ChargingManagementSystem.dir
+C:/Users/liu/OneDrive/桌面/C++/ChargingManagementSystem/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/liu/OneDrive/桌面/C++/ChargingManagementSystem/cmake-build-debug/CMakeFiles/rebuild_cache.dir
