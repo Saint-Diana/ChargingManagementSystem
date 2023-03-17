@@ -67,6 +67,10 @@ int main() {
                 double money;
                 printf("请输入卡号（1~18位数字串）：");
                 cin >> cardId;
+                while (cardId.length() > 18){
+                    printf("卡号过长，请重新输入：");
+                    cin >> cardId;
+                }
                 while (management.isExist(cardId)){
                     printf("已存在相同卡号，请重新输入：");
                     cin >> cardId;

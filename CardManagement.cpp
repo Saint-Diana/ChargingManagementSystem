@@ -261,6 +261,17 @@ void CardManagement::logout(string cardId, const string &password) {
                 printf("该卡未上机！\n");
                 return;
             }
+            cards[i].state = 1;
+            auto now = std::chrono::system_clock::now();
+            time_t current  = std::chrono::system_clock::to_time_t(now);
+            long seconds = current - cards[i].time;
+            cards[i].money -= price_per_second * seconds;
+            while (cards[i].money < 0){
+                cout << "余额不足，请充值：";
+                double m;
+                cin >> m;
+                cards[i].money += m;
+            }
             //接下来就将该卡下机，并且修改机器信息
             printf("机器编号\t\t卡号\t\t余额\t\t上机时间\t\t下机时间\n");
             for(int j = 0;j < MAX_MACHINE_NUM;++j){
@@ -269,11 +280,6 @@ void CardManagement::logout(string cardId, const string &password) {
                     cout << machines[j].id << "\t\t";
                 }
             }
-            cards[i].state = 1;
-            auto now = std::chrono::system_clock::now();
-            time_t current  = std::chrono::system_clock::to_time_t(now);
-            long seconds = current - cards[i].time;
-            cards[i].money -= price_per_second * seconds;
             //打印信息
             cout << cards[i].cardId << "\t\t";
             cout << cards[i].money << "\t\t";
@@ -349,6 +355,11 @@ void CardManagement::refund(string cardId, const string& password, double money)
             //接下来判断该卡是否注销
             if (cards[i].state == 0) {
                 printf("该卡已注销！\n");
+                return;
+            }
+
+            if(cards[i].state == 2){
+                printf("该卡正在上机！\n");
                 return;
             }
             //若该卡密码正确且未注销，则进行退费
